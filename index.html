@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finger Chords</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>finger_chords.html — left hand picks the root, right hand picks the chord quality<br>(one hand alone plays a plain major chord on that root)</h1>
+
+  <div class="stage" id="stage">
+    <video id="video" playsinline></video>
+    <canvas id="canvas"></canvas>
+    <div class="overlay-msg" id="overlayMsg">press start, allow the camera, hold up one or two hands</div>
+  </div>
+
+  <div class="controls">
+    <button id="startBtn">Start camera</button>
+    <select id="keySelect">
+      <option value="0">Key: C</option>
+      <option value="2">Key: D</option>
+      <option value="4">Key: E</option>
+      <option value="5">Key: F</option>
+      <option value="7">Key: G</option>
+      <option value="9">Key: A</option>
+      <option value="11">Key: B</option>
+    </select>
+    <button id="mirrorBtn" class="secondary">Mirror: off</button>
+  </div>
+
+  <div class="hud">
+    <div class="card">
+      <div class="label">left hand — root</div>
+      <div class="value" id="rootValue">–</div>
+    </div>
+    <div class="card right">
+      <div class="label">right hand — quality</div>
+      <div class="value" id="qualityValue">–</div>
+    </div>
+    <div class="card">
+      <div class="label">chord</div>
+      <div class="value" id="chordName">–</div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="row"><span>root (left hand fingers)</span><span class="n">1 C · 2 D · 3 E · 4 F · 5 G</span></div>
+    <div class="row"><span>quality (right hand fingers)</span><span class="n">1 major · 2 minor · 3 dim · 4 sus4 · 5 dom7</span></div>
+    <div class="hint">Only one hand up? It plays that hand's root as a plain major chord. No hands = silence. The "Key" dropdown transposes every root up together.</div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+
+<script src="script.js"></script>
+</body>
+</html>
